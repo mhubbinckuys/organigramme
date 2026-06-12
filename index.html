@@ -255,9 +255,9 @@ const DEPT_LABELS = {
 };
 
 // ── DONNÉES — Ajout d'une colonne ";Note" à la fin de la première ligne ──
-const EMBEDDED_CSV = `ID;Nom ;Poste;Manager ID;Email;Photo;Note
+const EMBEDDED_CSV = `ID;Nom ;Poste;Manager ID;Email;Photo;Note;Tel
 1;Arnaud ACARIE;Directeur Général;;aacarie@belacom.fr;arnaud_acarie.png;
-2;Aymeric MATIVON;Directeur Administratif et Financier (BAYA GROUP);1;amativon@bayagroup.eu;aymeric_mativon.png;
+2;Aymeric MATIVON;Directeur Administratif et Financier (BAYA GROUP);1;amativon@bayagroup.eu;aymeric_mativon.png;;06 66 39 35 34
 3;Alexandre CHENNEVAST;Directeur Services Clients;1;achennevast@belacom.fr;alexandre_chennevast.png;
 4;Nicolas HENRY;Directeur Customer Success;1;nhenry@belacom.fr;nicolas_henry.png;
 5;Nicolas PIRIN;Directeur Commercial;1;npirin@belacom.fr;nicolas_pirin.png; Session Cold Call : Mardis Après-Midi / Jeudis Après-Midi
@@ -626,6 +626,7 @@ function openModal(p) {
     ${e ? `<div class="modal-row"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><a href="mailto:${e}">${e}</a></div>` : ''}
     ${mgrName ? `<div class="modal-row"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Manager : ${mgrName}</div>` : ''}
     ${note ? `<div class="modal-note-box" style="--m-color: ${color}">${note}</div>` : ''}
+    ${(p.Tel||'').trim() ? `<div class="modal-row">📞 ${(p.Tel||'').trim()}</div>` : ''}
   `;
   document.getElementById('modal-backdrop').classList.add('open');
 }
